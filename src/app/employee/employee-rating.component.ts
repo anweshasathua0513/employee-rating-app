@@ -47,6 +47,8 @@ throw new Error('Method not implemented.');
 
   ngOnInit(): void {
     // Fetch employee info from backend
+    const id = this.route.snapshot.paramMap.get('id');
+  if (id) {
     this.http.get<any>('http://localhost:8080/rating/save/${id}').subscribe({
       next: (data) => {
         this.employeeId = data.employeeId;
