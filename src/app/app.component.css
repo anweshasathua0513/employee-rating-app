@@ -1,0 +1,339 @@
+/* Light Theme (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --input-bg: #f9f9f9;
+  --border-color: orange;
+  --button-bg: #ff6f00;
+  --button-text: white;
+  --table-header-bg: #fff5e6;
+  --table-row-even: #fffaf2;
+  --table-row-odd: #ffffff;
+  --table-hover: #fff4e0;
+  --highlight-cell: #fff4e0;
+}
+
+/* Dark Mode Theme */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --input-bg: #1e1e1e;
+  --border-color: #ff9900;
+  --button-bg: #ff8800;
+  --button-text: #000000;
+  --table-header-bg: #1e1e1e;
+  --table-row-even: #1a1a1a;
+  --table-row-odd: #111111;
+  --table-hover: #2a2a2a;
+  --highlight-cell: #333333;
+}
+
+
+/* Header with logo and title */
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  padding: 15px 30px;
+  border-bottom: 2px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--border-color);
+  color: var(--text-color);
+}
+
+
+
+/* Logo */
+
+.logo-left {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+}
+
+.logo-left img {
+  height: 100px;
+}
+
+/* Title */
+.form-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Employee Info */
+.employee-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 10%;
+  background-color: var(--bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--border-color);
+  color: var(--text-color);
+}
+
+.employee-info label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.employee-info input {
+  margin-top: 5px;
+  padding: 8px;
+  width: 200px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.employee-info input:focus {
+  border-color: #ffa94d;
+  box-shadow: 0 0 5px #ffa94d;
+}
+
+/* Table Styling */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.3);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+table th, table td {
+  border: 2px solid var(--border-color);
+  padding: 15px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+table th {
+  background-color: var(--table-header-bg);
+  font-weight: 600;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 30px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+/* Toggle Theme Icon */
+.theme-toggle-icon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+  color: var(--text-color);
+}
+
+.theme-toggle-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Target the table radio buttons and highlight their cell when selected */
+td input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+  position: relative;
+}
+
+td input[type="radio"]:checked {
+  background-color: #ffa500;
+  border-color: #ff6f00;
+  box-shadow: 0 0 0 4px rgba(255, 165, 0, 0.3);
+}
+
+/* Highlight the table cell of the selected rating */
+td:has(input[type="radio"]:checked) {
+  background-color: #fff4e0;
+  transition: background-color 0.3s ease;
+}
+
+/* Make even-numbered rows a light background */
+table tr:nth-child(even) {
+  background-color: #fffaf2; /* soft cream-like */
+}
+
+/* Make odd-numbered rows a different soft background */
+table tr:nth-child(odd) {
+  background-color: #ffffff; /* white */
+}
+
+table tr:hover {
+  background-color: #fff4e0; /* soft orange-tint on hover */
+  transition: 0.3s ease-in-out;
+}
+
+
+/* Table Border Styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+/* Table Cell Styling */
+table th, table td {
+  border: 1px solid #ffa500;
+  padding: 12px;
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Rounded corners only on outer table edges */
+table tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+table tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+/* Hover Effect for Cells */
+table td:hover {
+  background-color: #fff0d9;
+  border-color: #ff8800;
+  cursor: pointer;
+}
+
+.rating-section input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+  position: relative;
+}
+
+.rating-section input[type="radio"]:checked {
+  background-color: #ffa500;
+  border-color: #ff6f00;
+  box-shadow: 0 0 0 4px rgba(255, 165, 0, 0.3);
+}
+
+
+.rating-section table th {
+  background-color: var(--table-header-bg);
+  color: var(--text-color);
+}
+
+/* Table rows using the new variables */
+.rating-section table tr:nth-child(even) {
+  background-color: var(--table-row-even);
+}
+
+.rating-section table tr:nth-child(odd) {
+  background-color: var(--table-row-odd);
+}
+
+.rating-section table tr:hover {
+  background-color: var(--table-hover);
+  transition: 0.3s ease-in-out;
+}
+
+/* Highlight cell when radio is selected */
+.rating-section td:has(input[type="radio"]:checked) {
+  background-color: var(--highlight-cell);
+}
+
+
+
+button[type="submit"] {
+  background-color: #ff6f00;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: block;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(255, 111, 0, 0.3);
+}
+
+button[type="submit"]:hover {
+  background-color: #e65100;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 111, 0, 0.4);
+}
+
+.form-container {
+  background-color: white;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #ff9800;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.3);
+  outline: none;
+}
