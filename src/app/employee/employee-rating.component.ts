@@ -47,7 +47,7 @@ throw new Error('Method not implemented.');
 
   ngOnInit(): void {
     // Fetch employee info from backend
-    this.http.get<any>('http://localhost:8080/employee/details').subscribe({
+    this.http.get<any>('http://localhost:8080/rating/save/{id}').subscribe({
       next: (data) => {
         this.employeeId = data.employeeId;
         this.employeeName = data.employeeName;
@@ -72,7 +72,7 @@ throw new Error('Method not implemented.');
 
     console.log('📤 Sending to backend:', dataToSend);
 
-    this.http.post('http://localhost:8080/rating/save/', dataToSend).subscribe({
+    this.http.post('http://localhost:8080/rating/save/{id}', dataToSend).subscribe({
       next: (response) => {
         console.log('✅ Submitted successfully:', response);
         alert('Form submitted successfully!');
