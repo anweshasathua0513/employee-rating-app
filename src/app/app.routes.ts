@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { EmployeeRatingComponent } from './app/employee-rating/employee-rating.component';
+import { EmployeeRatingComponent } from './employee/employee-rating.component';
 
 export const routes: Routes = [
     {
