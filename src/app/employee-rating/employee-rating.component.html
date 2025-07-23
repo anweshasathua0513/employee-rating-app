@@ -1,0 +1,92 @@
+<header class="form-header">
+  <div class="logo-left">
+    <img src="assets/Logo.png" alt="Company Logo" />
+  </div>
+  <div class="form-title">
+    <h2>Employee Performance Rating</h2>
+  </div>
+
+  <div class="theme-toggle-icon" (click)="toggleTheme()" [title]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+    <span *ngIf="!isDarkMode">🌞</span>
+    <span *ngIf="isDarkMode">🌙</span>
+  </div>
+</header>
+
+
+<div class="employee-header">
+  <div class="employee-fields">
+    <div class="employee-field">
+      <label>🆔 Employee ID:</label>
+      <input type="text" [(ngModel)]="employeeId" name="employeeId" readonly placeholder="Auto-filled from system" />
+    </div>
+
+    <div class="employee-field">
+      <label>👤 Employee Name:</label>
+      <input type="text" [(ngModel)]="employeeName" name="employeeName" readonly placeholder="Auto-filled from system" />
+    </div>
+
+    <div class="employee-field">
+      <label>💼 Designation:</label>
+      <input type="text" [(ngModel)]="designation" name="designation" readonly placeholder="Auto-filled from system" />
+    </div>
+
+    <div class="employee-field">
+      <label>📁 Project Name:</label>
+      <input type="text" [(ngModel)]="project_name" name="projectName" readonly placeholder="Auto-filled from system" />
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="employee-info">
+  <label>
+    Employee ID:
+    <input type="text" [(ngModel)]="employeeId" name="employeeId" readonly />
+  </label>
+  <label>
+    Employee Name:
+    <input type="text" [(ngModel)]="employeeName" name="employeeName" readonly />
+  </label>
+  <label>
+    Designation:
+    <input type="text" [(ngModel)]="designation" name="designation" readonly />
+  </label>
+  <label>
+    Project Name:
+    <input type="text" [(ngModel)]="project_name" name="project_name" readonly />
+  </label>
+</div> -->
+
+
+<form (ngSubmit)="onSubmit()" class="rating-form">
+  <table>
+    <thead>
+      <tr>
+        <th>Criteria</th>
+        <th *ngFor="let rating of ratings">{{ rating }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let criteria of performanceCriteria">
+        <td>{{ criteria }}</td>
+        <td *ngFor="let rating of ratings">
+          <input
+            type="radio"
+            [name]="criteria"
+            [value]="rating"
+            [(ngModel)]="formData[criteria]"
+            [required]="!formData[criteria]"  
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="submit">Submit</button>
+</form>
+
+
+ 
+  
+
