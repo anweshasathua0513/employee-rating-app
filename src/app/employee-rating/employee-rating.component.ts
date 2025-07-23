@@ -36,34 +36,41 @@ export class EmployeeRatingComponent implements OnInit {
   this.isDarkMode = storedTheme === 'dark';
   document.body.classList.toggle('dark-mode', this.isDarkMode);
 
-  this.route.paramMap.subscribe(params => {
-    const id = params.get('id');
+  this.route.queryParamMap.subscribe(params => {
+    const empId = params.get('empId'); // ✅ correct key
+    const name = params.get('name');
+    const designation = params.get('designation');
+    const project = params.get('projectName');
 
-    if (id && id.trim() !== '') {
-      // ✅ Only set and load if a real ID is provided
-      this.employeeId = id;
+    if (empId && name && designation && project) {
+      this.employeeId = empId;
+      this.employeeName = name;
+      this.designation = designation;
+      this.project_name = project;
 
+      
       this.http.get<any>(`http://localhost:8080/rating/save/${this.employeeId}`).subscribe({
         next: (data) => {
-          this.employeeName = data.employeeName;
-          this.designation = data.designation;
-          this.project_name = data.projectName;
+          console.log('✅ Employee fetched:', data);
+          
         },
         error: (err) => {
-          console.error('❌ Failed to load employee data:', err);
-          alert('Failed to fetch employee details.');
+          console.error('❌ Failed to fetch employee data:', err);
+          
         }
       });
+
     } else {
-      // ✅ Clear all fields for blank route
+      console.warn('⚠️ Missing query params!');
       this.employeeId = '';
       this.employeeName = '';
       this.designation = '';
       this.project_name = '';
-      this.formData = {}; // also clear ratings if needed
     }
   });
 }
+
+  
 
   toggleTheme(): void {
     this.isDarkMode = !this.isDarkMode;
