@@ -1,0 +1,116 @@
+/* Light Theme */
+body {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --input-bg: #f9f9f9;
+  --border-color: orange;
+  --table-header-bg: #fff5e6;
+  --button-bg: #ff6600;
+  --button-text: white;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Dark Theme */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --input-bg: #1e1e1e;
+  --border-color: #ffa94d;
+  --table-header-bg: #333333;
+  --button-bg: #ffaa33;
+  --button-text: #000000;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Input / Select / Textarea */
+input, select, textarea {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+input::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* Table Headings */
+th, td {
+  color: var(--text-color);
+}
+
+/* Generic Buttons */
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+
+
+.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+
+.dark-mode input[type="text"] {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  border: 1px solid #ffa500;
+}
+
+.dark-mode input[type="text"]::placeholder {
+  color: #ccc;
+}
+
+
+.dark-mode table {
+  background-color: #1c1c1c;
+  color: #f0f0f0;
+}
+
+.dark-mode table th {
+  background-color: #2e2e2e;
+  color: #ffa500;
+}
+
+.dark-mode table td {
+  background-color: #1c1c1c;
+  color: #f0f0f0;
+  border-color: #ff9900;
+}
+
+
+.dark-mode td label {
+  color: #f0f0f0 !important;  /* override if faded */
+}
+
+body, table, input, button {
+  transition: all 0.3s ease;
+}
+
+
+
+@media (max-width: 768px) {
+  .employee-field {
+    flex: 1 1 100%;
+  }
+}
